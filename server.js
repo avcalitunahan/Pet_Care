@@ -13,8 +13,8 @@ const app = express();
 app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
-    saveUninitialized: false,
-    cookie: {secure: false} //https üzerinden olurken true
+    saveUninitialized: true,
+    cookie: {secure: true} //https üzerinden olurken true
 }))
 
 const publicDirectory = path.join(__dirname, './public');
@@ -29,6 +29,6 @@ app.set('view engine', 'hbs');
 app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
-app.listen(8080, () => {
+app.listen(3000, () => {
     console.log("Server started on Port 8080");
 });
