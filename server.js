@@ -29,6 +29,6 @@ app.set('view engine', 'hbs');
 app.use("/", require("./routes/pages"));
 app.use("/auth", require("./routes/auth"));
 
-app.listen(3000, () => {
-    console.log("Server started on Port 3000");
+app.listen(8080, () => {
+    console.log("Server started on Port 8080");
 });
