@@ -14,11 +14,18 @@ app.use(session({
     secret: process.env.SECRET_KEY,
     resave: false,
     saveUninitialized: true,
-    cookie: {secure: true} //https üzerinden olurken true
+    cookie: {secure: false} //https üzerinden olurken true
 }))
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
+app.use(express.static(path.join(__dirname, 'dist')));
+
+// controllers/auth.js dosyasını kullanmak için
+const authController = require('./dist/bundle.js');
+
+// authController.register, authController.login, vb. gibi fonksiyonları kullanabilirsiniz.
+
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
