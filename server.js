@@ -19,12 +19,6 @@ app.use(session({
 
 const publicDirectory = path.join(__dirname, './public');
 app.use(express.static(publicDirectory));
-app.use(express.static(path.join(__dirname, 'dist')));
-
-// controllers/auth.js dosyasını kullanmak için
-const authController = require('./dist/bundle.js');
-
-// authController.register, authController.login, vb. gibi fonksiyonları kullanabilirsiniz.
 
 
 app.use(express.urlencoded({extended: false}));
